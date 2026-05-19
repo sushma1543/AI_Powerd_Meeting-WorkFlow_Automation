@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function App() {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
   const [text, setText] = useState("");
   const [result, setResult] = useState(null);
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:8000/process", {
+      const res = await axios.post(`${backendUrl}/process`, {
         transcript: text,
       });
 
@@ -41,7 +42,7 @@ export default function App() {
 
   const generateEmail = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/followup", {
+      const res = await axios.post(`${backendUrl}/followup`, {
         summary: result.summary,
         action_items: result.action_items,
       });
