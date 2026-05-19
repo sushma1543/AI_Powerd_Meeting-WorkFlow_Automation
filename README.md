@@ -50,7 +50,7 @@ http://localhost:8000
 3. Backend settings:
    - Build command: `pip install -r requirements.txt`
    - Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-   - Environment variable: `OPENAI_API_KEY`
+   - Environment variable: `GROQ_API_KEY`
 4. Frontend settings:
    - Build command: `npm install && npm run build`
    - Start command: `npx serve -s dist --listen 0.0.0.0:$PORT`
